@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Media vs. Still Media</title>
+    <link rel="stylesheet" href="edit.css">
+</head>
+<body>
+    <header>
+        <nav class="section__container nav__container">
+            <div class="nav__logo">
+              <a href="index.html">Still<span>Movement</span></a>
+            </div>
+            <ul class="nav__links">
+                <li class="link"><a href="index.html">Home</a></li>
+                <li class="link"><a href="Comparison.html">Comparison</a></li>
+                <li class="link"><a href="Video.html">Videos</a></li>
+                <li class="link"><a href="Description.html">Description</a></li>
+                <li class="link"><a href="Photos.html">Photos</a></li>
+                <li class="link"><a href="Resources.html">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+<!--Video Display-->
+<div class="container"></div>
+
+<div class="heading">Video Gallery</div>
+
+<div class="video-container">
+
+<div class="video">
+    <video src="Videos/EnergyCombined.mp4" muted></video>
+</div>
+
+<div class="video">
+    <video src="Videos/DDGameplay.mp4" muted></video>
+</div> 
+
+<div class="video">
+    <video src="Videos/Philosophy Liquid Edit.mp4" muted></video>
+</div> 
+
+<div class="video">
+    <video src="Videos/Moving Media DisGlitch.mp4" muted></video>
+</div> 
+
+<div class="video">
+    <video src="Videos/Text.mp4" muted></video>
+</div> 
+
+<div class="video">
+    <video src="Videos/Observe Render.mp4" muted></video>
+</div> 
+
+<div class="video">
+    <video src="Videos/PS4 Logo Animation.mp4"></video>
+</div> 
+
+<div class="video">
+    <video src="Videos/MarvelOne.mp4" muted></video>
+</div> 
+
+<div class="video">
+    <video src="Videos/NB Logo Animation.mp4" muted></video>
+</div> 
+
+</div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const videoContainers = document.querySelectorAll('.video');
+
+        videoContainers.forEach(container => {
+            const video = container.querySelector('video');
+
+            // Play the video on mouse enter
+            container.addEventListener('mouseenter', () => {
+                video.play();
+            });
+
+            // Pause the video on mouse leave
+            container.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0; // Reset to start if needed
+            });
+
+            // Toggle play/pause on click
+            video.addEventListener('click', () => {
+                video.classList.toggle('active');
+                
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                    // Uncomment the next line if you want to reset to the start after pausing.
+                    // video.currentTime = 0;
+                }
+            });
+        });
+    });
+</script>
+<footer>
+    <div class="footer__container">
+        <p>&copy; 2024 ArtGallery. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

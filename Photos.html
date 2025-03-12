@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Media vs. Still Media</title>
+    <link rel="stylesheet" href="edit.css">
+</head>
+<body>
+    <header>
+        <nav class="section__container nav__container">
+            <div class="nav__logo">
+              <a href="index.html">Still<span>Movement</span></a>
+            </div>
+            <ul class="nav__links">
+                <li class="link"><a href="index.html">Home</a></li>
+                <li class="link"><a href="Comparison.html">Comparison</a></li>
+                <li class="link"><a href="Video.html">Videos</a></li>
+                <li class="link"><a href="Description.html">Description</a></li>
+                <li class="link"><a href="Photos.html">Photos</a></li>
+                <li class="link"><a href="Resources.html">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+<!--Photos Display-->
+<div class="container"></div>
+
+<div class="heading">Photo Gallery</div>
+
+<div class="Image-container">
+
+<div class="Photo">
+    <img src="Images/Demon King of Black Air Force Energy.png" alt="about"/>
+</div>
+
+<div class="Photo">
+    <img src="Images/Cultist Card.jpg">
+</div>
+
+<div class="Photo">
+    <img src="Images/ASU Marketing.png">
+</div>
+
+<div class="Photo">
+    <img src="Images/j-cole middle child.jpg">
+</div>
+
+<div class="Photo">
+    <img src="Images/Space.jpg">
+</div>
+
+<div class="Photo">
+    <img src="Images/ASU Swim.jpg">
+</div>
+
+<div class="Photo">
+    <img src="Images/Omnipotent Beings Reaching out to hands.jpg">
+</div>
+
+<div class="Photo">
+    <img src="Images/Game Logo.png">
+</div>
+
+</div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const photos = document.querySelectorAll('.Photo img'); // Select all images inside Photo containers
+
+        photos.forEach(photo => {
+            // Add hover effect
+            photo.addEventListener('mouseenter', () => {
+                photo.style.filter = 'brightness(80%)'; // Darken on hover
+            });
+
+            photo.addEventListener('mouseleave', () => {
+                photo.style.filter = 'brightness(100%)'; // Reset brightness
+            });
+
+            // Add fullscreen functionality on click
+            photo.addEventListener('click', () => {
+                const fullscreenOverlay = document.createElement('div');
+                fullscreenOverlay.style.position = 'fixed';
+                fullscreenOverlay.style.top = '0';
+                fullscreenOverlay.style.left = '0';
+                fullscreenOverlay.style.width = '100vw';
+                fullscreenOverlay.style.height = '100vh';
+                fullscreenOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                fullscreenOverlay.style.display = 'flex';
+                fullscreenOverlay.style.justifyContent = 'center';
+                fullscreenOverlay.style.alignItems = 'center';
+                fullscreenOverlay.style.zIndex = '1000';
+
+                const fullscreenImage = document.createElement('img');
+                fullscreenImage.src = photo.src;
+                fullscreenImage.style.maxWidth = '90%';
+                fullscreenImage.style.maxHeight = '90%';
+                fullscreenImage.style.borderRadius = '10px';
+
+                // Append the fullscreen image to the overlay
+                fullscreenOverlay.appendChild(fullscreenImage);
+                document.body.appendChild(fullscreenOverlay);
+
+                // Remove overlay when clicked
+                fullscreenOverlay.addEventListener('click', () => {
+                    fullscreenOverlay.remove();
+                });
+            });
+        });
+    });
+</script>
+
+
+<footer>
+    <div class="footer__container">
+        <p>&copy; 2024 ArtGallery. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
